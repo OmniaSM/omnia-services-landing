@@ -64,9 +64,13 @@
                 <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
                     Stop Managing Tasks. <br class="sm:hidden"> <span class="text-[--color-accent]">Start Growing Your Business.</span>
                 </h1>
+                
+                <!-- UPDATED TEXT HERE -->
                 <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-                    Omnia Services provides complete business management services for busy owners who need it all handled right. We organise your workflow, manage communications, and use smart data systems to ensure every task drives long-term efficiency and clarity.
+                    Omnia Services provides complete business management support for busy owners who need everything handled the right way. Whether it’s relieving pressure by managing communications, offloading manual tasks, strategically reviewing business processes for improvement, or turning your data into meaningful reporting, we streamline your operations to drive long-term clarity and efficiency.
                 </p>
+                <!-- END UPDATED TEXT -->
+
                 <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#services" class="w-full sm:w-auto px-8 py-3 bg-[--color-accent] text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-[--color-accent-dark] transition duration-300 transform hover:scale-105">
                         See Our Management Services
@@ -195,12 +199,16 @@
                     <input type="text" id="leadName" placeholder="Your Name (Required)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[--color-accent] focus:border-[--color-accent]" required>
 
                     <input type="email" id="leadEmail" placeholder="Your Business Email (Required)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[--color-accent] focus:border-[--color-accent]" required>
+                    
+                    <!-- Phone Number Input Field -->
+                    <input type="tel" id="leadPhone" placeholder="Your Phone Number (Required)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[--color-accent] focus:border-[--color-accent]" required>
+                    <!-- END NEW FIELD -->
 
                     <input type="text" id="leadTime" placeholder="Best Time to Contact? (e.g. Mon-Weds, 10am-1pm UK time) (Required)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[--color-accent] focus:border-[--color-accent]" required>
 
-                    <!-- Service Interest Dropdown (Optional) -->
-                    <select id="leadService" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[--color-accent] focus:border-[--color-accent] text-gray-500" name="service-interest">
-                        <option value="" disabled selected>What service are you interested in? (Optional)</option>
+                    <!-- Service Interest Dropdown (NOW REQUIRED) -->
+                    <select id="leadService" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[--color-accent] focus:border-[--color-accent] text-gray-800" name="service-interest" required>
+                        <option value="" disabled selected class="text-gray-500">What service are you interested in? (Required)</option>
                         <option value="Kickstart">Essential Operations Kickstart</option>
                         <option value="DataClarity">Strategic Reporting & Data Clarity</option>
                         <option value="Retainer">Strategic Systems & Automation Retainer</option>
@@ -322,8 +330,9 @@
                 const leadData = {
                     name: document.getElementById('leadName').value,
                     email: document.getElementById('leadEmail').value,
+                    phone: document.getElementById('leadPhone').value, 
                     contactTime: document.getElementById('leadTime').value,
-                    serviceInterest: document.getElementById('leadService').value,
+                    serviceInterest: document.getElementById('leadService').value, // This is now required by HTML validation
                     challenge: document.getElementById('leadChallenge').value,
                     submissionTimestamp: serverTimestamp(),
                     submittedByUserId: userId 
